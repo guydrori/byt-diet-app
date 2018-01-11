@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BYTDietApp</string>
+    <string-array name="meal_choices">
+        <item>Big Mac</item>
+        <item>Steak</item>
+    </string-array>
+    <string name="meal_choice_label">Dish:</string>
+    <string name="quantity_label">Quantity:</string>
+</resources>
