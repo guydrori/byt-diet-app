@@ -21,6 +21,8 @@ public class User {
     private List<Report> _reports;
 
     public User (String name, String surname, Date birthDate, String email, String login, Sex sex) {
+        if (name == null || surname == null || birthDate == null || email == null || login == null || sex == null) throw new NullPointerException();
+        if (name.length() == 0 || surname.length() == 0 || email.length() == 0 || login.length() == 0) throw new IllegalArgumentException("Text values cannot be empty strings!");
         _name = name;
         _surname = surname;
         _dateOfBirth = birthDate;
@@ -34,6 +36,8 @@ public class User {
     }
 
     public void setName(String name) {
+        if (name.length() == 0 ) throw new IllegalArgumentException("Value cannot be an empty string!");
+        if (name == null) throw new NullPointerException();
         this._name = _name;
     }
 
@@ -42,6 +46,8 @@ public class User {
     }
 
     public void setSurname(String surname) {
+        if (surname.length() == 0 ) throw new IllegalArgumentException("Value cannot be an empty string!");
+        if (surname == null) throw new NullPointerException();
         this._surname = _surname;
     }
 
@@ -50,6 +56,7 @@ public class User {
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
+        if (dateOfBirth == null) throw new NullPointerException();
         this._dateOfBirth = _dateOfBirth;
     }
 
@@ -58,6 +65,8 @@ public class User {
     }
 
     public void setEmail(String email) {
+        if (email.length() == 0 ) throw new IllegalArgumentException("Value cannot be an empty string!");
+        if (email == null) throw new NullPointerException();
         this._email = _email;
     }
 
@@ -66,6 +75,7 @@ public class User {
     }
 
     public void setPassword(byte[] password) {
+        if (password == null) throw new NullPointerException();
         this._password = _password;
     }
 
@@ -74,6 +84,7 @@ public class User {
     }
 
     public void setSex(Sex sex) {
+        if (sex == null) throw new NullPointerException();
         this._sex = _sex;
     }
 

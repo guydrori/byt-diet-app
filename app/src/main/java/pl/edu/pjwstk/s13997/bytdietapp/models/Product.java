@@ -21,6 +21,7 @@ public class Product {
 
     public Product(String _name, int _calories, int _carbohydrates, double _fat, double _salt, int _protiens, double _sugar, Unit _unit,ProductGroup group) {
         if (_name == null || _unit == null ) throw new NullPointerException();
+        if (_name.equals("")) throw new IllegalArgumentException("Name cannot be an empty string");
         if (_calories < 0 || _fat < 0 || _salt < 0 || _protiens <  0 || _sugar <  0) throw new IllegalArgumentException("Values cannot be negative!");
         this._name = _name;
         this._calories = _calories;
@@ -39,6 +40,7 @@ public class Product {
     }
 
     public void set_name(String _name) {
+        if (_name.equals("")) throw new IllegalArgumentException("Name cannot be an empty string");
         if (_name == null ) throw new NullPointerException();
         this._name = _name;
     }

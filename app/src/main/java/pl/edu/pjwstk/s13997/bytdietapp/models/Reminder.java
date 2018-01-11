@@ -12,6 +12,10 @@ public class Reminder {
     private String content;
 
     private Reminder(DaysOfWeek _dayOfWeek, int _hour, int _minute, String content) {
+        if (_dayOfWeek == null || content == null) throw new NullPointerException();
+        if (_hour < 0 || _hour > 23) throw new IllegalArgumentException("The hour value is not a valid hour!");
+        if (_minute < 0 || _minute > 23) throw new IllegalArgumentException("The minute value is not a valid minute!");
+        if (content.length() == 0) throw new IllegalArgumentException("Content cannot be an empty string!");
         this._dayOfWeek = _dayOfWeek;
         this._hour = _hour;
         this._minute = _minute;
@@ -31,6 +35,7 @@ public class Reminder {
     }
 
     public void set_dayOfWeek(DaysOfWeek _dayOfWeek) {
+        if (_dayOfWeek == null) throw new NullPointerException();
         this._dayOfWeek = _dayOfWeek;
     }
 
@@ -39,6 +44,7 @@ public class Reminder {
     }
 
     public void set_hour(int _hour) {
+        if (_hour < 0 || _hour > 23) throw new IllegalArgumentException("The hour value is not a valid hour!");
         this._hour = _hour;
     }
 
@@ -47,6 +53,7 @@ public class Reminder {
     }
 
     public void set_minute(int _minute) {
+        if (_minute < 0 || _minute > 23) throw new IllegalArgumentException("The minute value is not a valid minute!");
         this._minute = _minute;
     }
 
@@ -55,6 +62,8 @@ public class Reminder {
     }
 
     public void setContent(String content) {
+        if (content == null) throw new NullPointerException();
+        if (content.length() == 0) throw new IllegalArgumentException("Content cannot be an empty string!");
         this.content = content;
     }
 }

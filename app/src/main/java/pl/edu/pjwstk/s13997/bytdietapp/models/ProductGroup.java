@@ -22,6 +22,8 @@ public class ProductGroup {
     }
 
     public void set_name(String _name) {
+        if (_name == null) throw new NullPointerException();
+        if (_name.equals("")) throw new IllegalArgumentException("Name cannot be an empty string");
         this._name = _name;
     }
 
@@ -42,6 +44,7 @@ public class ProductGroup {
     }
 
     public void set_products(List<Product> _products) {
+        if (_products == null) throw new NullPointerException();
         this._products = _products;
     }
 
