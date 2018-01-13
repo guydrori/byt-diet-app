@@ -8,6 +8,7 @@ import java.util.Date;
 
 import pl.edu.pjwstk.s13997.bytdietapp.models.Meal;
 import pl.edu.pjwstk.s13997.bytdietapp.models.Product;
+import pl.edu.pjwstk.s13997.bytdietapp.models.ProductGroup;
 import pl.edu.pjwstk.s13997.bytdietapp.models.User;
 
 /**
@@ -19,7 +20,7 @@ public class MealTest {
     public void TestConstructor(){
         Date date = new Date(2016,10,22);
         User user = new User("jan","kowalski", date, "xyz@gmail.com", "plak",User.Sex.MALE);
-        Product product = new Product("kurczak", 200,10,20,0,20,3, Product.Unit.KG,null);
+        Product product = new Product("kurczak", 200,10,20,0,20,3, Product.Unit.KG,new ProductGroup("mięso"));
         try {
             Meal meal = new Meal(date,user,100,product);
             Assert.assertTrue(meal != null);
@@ -71,7 +72,7 @@ public class MealTest {
         Meal meal = new Meal(date,user,100,product);
         try{
             meal.set_amount(-10);
-            Assert.fail("set negative value to date");
+            Assert.fail("set negative value to amount");
         }
         catch(Exception e){
 

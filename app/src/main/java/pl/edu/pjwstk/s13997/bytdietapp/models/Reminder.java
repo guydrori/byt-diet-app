@@ -11,10 +11,10 @@ public class Reminder {
     private int _minute;
     private String content;
 
-    private Reminder(DaysOfWeek _dayOfWeek, int _hour, int _minute, String content) {
+    public Reminder(DaysOfWeek _dayOfWeek, int _hour, int _minute, String content) {
         if (_dayOfWeek == null || content == null) throw new NullPointerException();
         if (_hour < 0 || _hour > 23) throw new IllegalArgumentException("The hour value is not a valid hour!");
-        if (_minute < 0 || _minute > 23) throw new IllegalArgumentException("The minute value is not a valid minute!");
+        if (_minute < 0 || _minute > 59) throw new IllegalArgumentException("The minute value is not a valid minute!");
         if (content.length() == 0) throw new IllegalArgumentException("Content cannot be an empty string!");
         this._dayOfWeek = _dayOfWeek;
         this._hour = _hour;
@@ -53,7 +53,7 @@ public class Reminder {
     }
 
     public void set_minute(int _minute) {
-        if (_minute < 0 || _minute > 23) throw new IllegalArgumentException("The minute value is not a valid minute!");
+        if (_minute < 0 || _minute > 59) throw new IllegalArgumentException("The minute value is not a valid minute!");
         this._minute = _minute;
     }
 

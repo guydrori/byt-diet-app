@@ -1,5 +1,6 @@
 package pl.edu.pjwstk.s13997.bytdietapp.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ public class Product {
         this._sugar = _sugar;
         this._unit = _unit;
         if (group == null) throw new NullPointerException();
+        _productGroups = new ArrayList<>();
         _productGroups.add(group);
     }
 
